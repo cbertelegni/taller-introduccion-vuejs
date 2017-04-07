@@ -1,0 +1,26 @@
+{
+  "name": "taller-introduccion-vuejs",
+  "version": "0.2.0",
+  "description": "Aprendiendo Vue.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "@cbertelegni",
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "pre-commit": [],
+  "homepage": "",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp-connect": "^5.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "run-sequence": "^1.2.2"
+  }
+}

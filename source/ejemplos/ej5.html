@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taller de introduccion a Vuejs - cbertelegni</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="./favicon.ico">
+
+
+<!-- https://getbootstrap.com/getting-started/ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.min.js"></script>
+
+<style type="text/css">
+    .page-header {
+        min-height: 100px;
+        margin-bottom: 40px;
+    }
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .tarjeta {
+        width: 30%;
+        height: 250px;
+        margin: 10px 1%;
+        border: solid 1px #ccc;
+        text-align: center;
+    }
+
+    .tarjeta img{
+        min-height: 50px;
+    }
+
+
+</style>
+
+</head>
+<body>
+
+
+
+<div id="app" class="container">
+<a href="../." style="margin: 10px;" class="btn btn-primary">Volver</a>
+    <div class="page-header">
+        <h1>{{title}}</h1>
+        <p>{{descripcion}}</p>
+    </div>
+
+
+    <div style="text-align: center;" class="row">
+        <div class="col-md-12">
+            Para vincular datos a in input se utiliza la directiva <code>v-model="var_name"</code></div>
+    </div>
+
+
+    <div style="text-align: center;" class="row">
+        <div class="col-md-12">
+            <input placeholder="Ingrese un valor" type="text" name="valor1" v-model="valor1"></div>
+    </div>
+
+    <div style="text-align: center;" class="row">
+        <div class="col-md-12"><h1>{{valor1}}</h1></div>
+    </div>
+
+    <div style="text-align: center;" class="row" v-if="valor1">
+        <div class="col-md-6">
+            <button class="btn btn-primary pull-right" v-on:click="reverseMethod">Cambiá el orden del valor1!</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-error pull-left" v-on:click="valor1=null">Reset valor1!</button>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+</body>
+</html>
+
+
+<!-- script -->
+<script type="text/javascript">
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    title: 'Binding data en inputs',
+    descripcion:"Vincular datos a inputs desde la directiva 'v-model'",
+    valor1: null
+  },
+
+  created: function(){
+    console.log("La aplicación fue creada")
+
+  },
+
+  methods:{
+    // acá se definen los metodos, estos estan accesibles en toda la app
+    reverseMethod: function(){
+        this.valor1 = this.valor1.split("").reverse().join("");
+        console.log(this.valor1)
+    }
+
+  }
+
+})
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+

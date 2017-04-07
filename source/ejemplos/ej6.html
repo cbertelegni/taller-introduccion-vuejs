@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taller de introduccion a Vuejs - cbertelegni</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" href="./favicon.ico">
+
+
+<!-- https://getbootstrap.com/getting-started/ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.min.js"></script>
+
+<style type="text/css">
+    .page-header {
+        min-height: 100px;
+        margin-bottom: 40px;
+    }
+    .row {
+        margin-bottom: 20px;
+    }
+
+    .tarjeta {
+        width: 30%;
+        height: 250px;
+        margin: 10px 1%;
+        border: solid 1px #ccc;
+        text-align: center;
+    }
+
+    .tarjeta img{
+        min-height: 50px;
+    }
+
+
+</style>
+
+</head>
+<body>
+
+
+
+<div id="app" class="container">
+<a href="../." style="margin: 10px;" class="btn btn-primary">Volver</a>
+    <div class="page-header">
+        <h1>{{title}}</h1>
+        <p>{{descripcion}}</p>
+        <p>Un buen artículo sobre introducción a <a target="_blank" href="http://www.jaimeolmo.com/2017/01/componentes-vue-js-espanol/">Vue.js components</a></p>
+    </div>
+
+
+    <div style="" class="row">
+        <div class="col-md-12">
+        <h2>Ejemplo 1: Lista de tareas</h2>
+        <ul>
+            <!--
+                "todo-item" es el nombre con el que se define el componente
+
+            -->
+            <todo-item v-for="item in lista_tareas" v-bind:todo="item"> </todo-item>
+        </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <div>
+      <h2>Ejemplo 2: Counter</h2>
+      <h3>Total: {{ total }}</h3>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+      <button-counter v-on:increment="incrementTotal"></button-counter>
+      Este no suma al total por no tener el listener <code>v-on:increment="incrementTotal"</code><button-counter ></button-counter>
+    </div>
+
+</div>
+
+
+</body>
+</html>
+
+
+<!-- script -->
+<script type="text/javascript">
+
+// Define el component llamado todo-item
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '<li>{{ todo.tarea }}</li>'
+})
+
+
+Vue.component('button-counter', {
+  template: '<button v-on:click="increment">{{ counter }}</button>',
+  data: function () {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    increment: function () {
+      this.counter += 1
+      this.$emit('increment')
+    }
+  },
+})
+
+
+var app = new Vue({
+    el: '#app',
+    data: function(){
+
+        return {
+            title: 'Components',
+            descripcion:"Ensamblando una Vue app con componentes",
+            lista_tareas: [
+                {tarea: "Chequear mails"},
+                {tarea: "Preparar el mate"},
+                {tarea: "Ver notificaciónes de Twitter"},
+                {tarea: "Almorzar..."}
+            ],
+
+            total:0
+        };
+    },
+
+    methods: {
+        incrementTotal: function () {
+            this.total += 1
+        }
+    }
+
+
+})
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
