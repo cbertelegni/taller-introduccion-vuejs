@@ -1,10 +1,8 @@
-# Primeros pasos con Vue.js  
+# Primeros pasos con [Vue.js](https://vuejs.org)  
 
 ## Taller de introducción a Vue.js v2.
 
 Este taller es a modo introductorio, algunos de los ejemplos fueron extraídos de la guía de aprendizaje del sitio oficial de [Vue.js](https://vuejs.org/v2/guide/). [Link al taller](https://cbertelegni.github.io/taller-introduccion-vuejs/)
-
-[vuejs.org/v2/guide/](https://vuejs.org/v2/guide/)
 
 
 Para correr el server de desarrollo es necesario tener inatalado [Node](https://nodejs.org/es/download/), npm, gulp a nivel global en la computadora.
