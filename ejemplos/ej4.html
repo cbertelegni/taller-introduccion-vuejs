@@ -63,6 +63,7 @@
 
     <div style="text-align: center;" class="row">
         <div class="col-md-12">
+            <p>Con la directiva <code>v-on:event_name</code> Escuchamos los eventos, en este caso usamos <code>v-on:click="senadores.reverse()</code> para cambiar el orden de los senadores.</p>
             <button class="btn btn-primary" v-on:click="senadores.reverse()">Cambiá el orden!</button>
         </div>
     </div>
@@ -81,6 +82,8 @@
         v-for="senador in senadores">
         <h3>{{senador.nombre}}</h3>
         <img class="img-circle img-thumbnail" :src="app_path + senador.photo">
+        <h4>{{senador.agrupacion}}</h4>
+        <p>{{senador.provincia}}</p>
     </div>
  </div>
 
